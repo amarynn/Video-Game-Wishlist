@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Wishlist</title>
+    <style href="/static/styles.css"></style>
+</head>
+<body>
+    <section class="header">
+        <section class="menu">
+            {% if current_user %}
+            <form action="/sessions/delete">
+                <button>log out</button>
+            </form>
+            <form action="/users/edit">
+                <button>edit account</button>
+            </form>            
+            <p>Welcome {{ current_user['id'] }}</p>
+            {% else %}
+            <form action="/users/new">
+                <button>sign up</button>
+            </form>
+            <form action="/sessions/new">
+                <button>log in</button>
+            </form>
+            {% endif %}            
+        </section>
+        <h1 class="title">Game Wishlist</h1>
+    </section>
+
+    <section class="nav">
+        <form action="/games/">
+            <button class="nav_button">Home</button>
+        </form>
+        {% if current_user %}
+        <form action="/games/my_wishlist">
+            <button class="nav_button">My Wishlist</button>
+        </form>
+        {% else %}
+        <form action="/games/no_user">
+            <button class="nav_button">My Wishlist</button>
+        </form>
+        {% endif %}
+        <form action="/games/search">
+            <input type="text" class="search" placeholder="Game Name Here" name="search_term">
+        </form>
+        <form action="/games/new">
+            <button class="nav_button">Add New Game</button>
+        </form>
+    </section>
+    {% block content %}
+    {% endblock %}
+</body>
+<script src="/static/scripts.js"></script>
+</html>
