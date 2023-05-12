@@ -1,5 +1,5 @@
 from flask import request, render_template, redirect, session
-from models.games_models import all_games, wishlist_items, search_games, add_to_wishlist, add_game, delete_game, specific_game, update_game
+from models.games_models import all_games, wishlist_items, search_games, add_to_wishlist, add_game, delete_game, specific_game, update_game, delete_from_wishlist
 from services.session_info import current_user
 
 def index():
@@ -23,6 +23,10 @@ def wishlist_add(id):
 def my_wishlist():
     wishlist = wishlist_items(session['user_id'])
     return render_template("games/wishlist.html", wishlist = wishlist, current_user = current_user())
+
+def remove_from_wishlist(id):
+    delete_from_wishlist(id)
+    return redirect("/games/my_wishlist")
 
 def search():
     search_term = request.args.get("search_term")

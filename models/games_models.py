@@ -13,6 +13,9 @@ def search_games(search_term):
 def add_to_wishlist(game_id, user_id):
     sql("INSERT INTO user_wishlist(user_id, game_id) VALUES(%s, %s) RETURNING*", [user_id, game_id])
 
+def delete_from_wishlist(id):
+    sql("DELETE FROM user_wishlist WHERE id = %s RETURNING*", [id])
+
 def add_game(name, image_url, description):
     sql("INSERT INTO games(name, image_url, description) VALUES(%s, %s, %s) RETURNING*", [name, image_url, description])
 

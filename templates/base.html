@@ -11,13 +11,13 @@
     <section class="header">
         <section class="menu">
             {% if current_user %}
-            <form action="/sessions/delete">
+            <form action="/sessions/delete" method = "POST">
                 <button>log out</button>
             </form>
-            <form action="/users/edit">
+            <form action="/users/{{ current_user['id'] }}/edit">
                 <button>edit account</button>
             </form>            
-            <p>Welcome {{ current_user['id'] }}</p>
+            <p>Welcome {{ current_user['user_name'] }}</p>
             {% else %}
             <form action="/users/new">
                 <button>sign up</button>
@@ -40,7 +40,7 @@
         </form>
         {% endif %}
         <form action="/games/search">
-            <input type="text" class="search" placeholder="Game Name Here" name="search_term">
+            <input type="text" class="search" placeholder="Search All Games" name="search_term">
         </form>
         {% if current_user %}
         <form action="/games/new">

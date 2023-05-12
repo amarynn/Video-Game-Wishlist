@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="games">
+    {% for game in wishlist: %}
+    <section>
+        <header>
+            <h2>{{ game["name"] }}</h2>
+            {% if current_user %}
+            <section class="controls">  
+                <form action="/games/{{ game['id'] }}/wishlist_remove" method="POST">
+                    <button>Remove</button>
+                </form>
+            </section>
+            {% endif %}
+        </header>
+
+        <img src="{{ game['image_url'] }}" alt="">
+        <p class="description">{{ game['description'] }}</p>
+    </section>
+    {% endfor %}
+</section>
+{% endblock %}

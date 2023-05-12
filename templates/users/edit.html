@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Edit your details</h1>
+<form action="/users/{{ user_details['id'] }}/update" method="POST">
+    <label for="">Username:</label>
+    <input type="text" name="user_name" value="{{ user_details['user_name'] }}">
+
+    <label for="">Email:</label>
+    <input type="text" name="email" value="{{ user_details['email'] }}">
+
+    <label for="">Password:</label>
+    <input type="password" name="password" placeholder="Your Password Here">
+
+    <button>Update Details</button>
+</form>    
+{% endblock %}
