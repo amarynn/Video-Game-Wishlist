@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="new_game">
+    <form action="/games/new_game" method="POST">
+        <label for="">Game Name: </label>
+        <input type="text" name="name">
+
+        <label for="">Game Poster Image URL: </label>
+        <input type="text" name="image_url">
+
+        <label for="">Description</label>
+        <input type="text" name="description" class="description_box">
+        <button>Add Game</button>
+    </form>
+</section>
+<section>
+    <p>online search coming soon</p>
+</section>
+{% endblock %}

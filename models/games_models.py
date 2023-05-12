@@ -12,3 +12,16 @@ def search_games(search_term):
 
 def add_to_wishlist(game_id, user_id):
     sql("INSERT INTO user_wishlist(user_id, game_id) VALUES(%s, %s) RETURNING*", [user_id, game_id])
+
+def add_game(name, image_url, description):
+    sql("INSERT INTO games(name, image_url, description) VALUES(%s, %s, %s) RETURNING*", [name, image_url, description])
+
+def delete_game(id):
+    sql("DELETE FROM games WHERE id = %s RETURNING*", [id])
+
+def specific_game(id):
+    game = sql("SELECT * FROM games WHERE id = %s", [id])
+    return game[0]
+
+def update_game(id, name, image_url, description):
+    sql("UPDATE games SET name = %s, image_url = %s, description = %s WHERE id = %s RETURNING*", [name, image_url, description, id])

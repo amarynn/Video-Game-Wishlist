@@ -31,24 +31,25 @@
     </section>
 
     <section class="nav">
-        <form action="/games/">
+        <form action="/">
             <button class="nav_button">Home</button>
         </form>
         {% if current_user %}
         <form action="/games/my_wishlist">
             <button class="nav_button">My Wishlist</button>
         </form>
-        {% else %}
-        <form action="/games/no_user">
-            <button class="nav_button">My Wishlist</button>
-        </form>
         {% endif %}
         <form action="/games/search">
             <input type="text" class="search" placeholder="Game Name Here" name="search_term">
         </form>
+        {% if current_user %}
         <form action="/games/new">
             <button class="nav_button">Add New Game</button>
         </form>
+        <form action="/games/edit">
+            <button class="nav_button">Edit Game Details</button>
+        </form>
+        {% endif %}
     </section>
     {% block content %}
     {% endblock %}
