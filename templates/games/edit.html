@@ -3,22 +3,27 @@
 <section class="games">
     {% for game in games: %}
     <section>
-        <header>
+        <header class="game_title">
             <h2>{{ game["name"] }}</h2>
+        </header>
             <section class="controls">
                 
-                <form action="/games/{{ game['id'] }}/edit">
-                    <button>edit</button>
+                <form action="/games/{{ game['id'] }}/edit"  class="edit_control">
+                    <button>Edit</button>
                 </form>
 
-                <form action="/games/{{ game['id'] }}/delete" method="POST">
+                <form action="/games/{{ game['id'] }}/delete" method="POST" class="edit_control">
                     <button>Delete</button>
                 </form>
             </section>
-        </header>
+        
 
-        <img src="{{ game['image_url'] }}" alt="">
-        <p class="description">{{ game['description'] }}</p>
+        <section class="container">
+            <img src="{{ game['image_url'] }}" alt="">
+            <section class="overlay">
+                <section class="hover_text">{{ game['description'] }}</section>
+            </section>
+        </section>
     </section>
     {% endfor %}
 </section>

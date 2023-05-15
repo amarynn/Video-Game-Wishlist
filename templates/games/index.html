@@ -2,20 +2,29 @@
 {% block content %}
 <section class="games">
     {% for game in games: %}
-    <section>
-        <header>
+    <section class="game_cards">
+        <header class="game_title">
             <h2>{{ game["name"] }}</h2>
-            {% if current_user %}
-            <section class="controls">  
+        </header>
+        {% if current_user %}
+            {% if game['id'] in wishlist %}
+            <section>  
+                    <section class="green_tick">Wishlisted</section>
+            </section>
+            {% else %}
+            <section>  
                 <form action="/games/{{ game['id'] }}/wishlist" method="POST">
                     <button>Wishlist</button>
                 </form>
             </section>
             {% endif %}
-        </header>
-
-        <img src="{{ game['image_url'] }}" alt="">
-        <p class="description">{{ game['description'] }}</p>
+        {% endif %}
+        <section class="container">
+            <img src="{{ game['image_url'] }}" alt="">
+            <section class="overlay">
+                <section class="hover_text">{{ game['description'] }}</section>
+            </section>
+        </section>
     </section>
     {% endfor %}
 </section>

@@ -1,12 +1,13 @@
 from flask import request, render_template, redirect
 from models.users_models import create_user, find_user_by_id, update_user
+from services.session_info import current_user
 
 def new():
     return render_template("users/new.html")
 
 def edit(id):
     user_details = find_user_by_id(id)
-    return render_template("users/edit.html", user_details = user_details)
+    return render_template("users/edit.html", user_details = user_details, current_user = current_user())
 
 def create():
     user_name = request.form.get("user_name")

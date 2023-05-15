@@ -28,3 +28,10 @@ def specific_game(id):
 
 def update_game(id, name, image_url, description):
     sql("UPDATE games SET name = %s, image_url = %s, description = %s WHERE id = %s RETURNING*", [name, image_url, description, id])
+
+def all_wishlist_items(id):
+    random = sql("SELECT game_id FROM user_wishlist WHERE user_id = %s", [id])
+    game_ids = []
+    for item in random:
+        game_ids.append(item['game_id'])
+    return game_ids

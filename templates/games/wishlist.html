@@ -13,9 +13,12 @@
             </section>
             {% endif %}
         </header>
-
-        <img src="{{ game['image_url'] }}" alt="">
-        <p class="description">{{ game['description'] }}</p>
+        <section class="container">
+            <img src="{{ game['image_url'] }}" alt="">
+            <section class="overlay">
+                <section class="hover_text">{{ game['description'] }}</section>
+            </section>
+        </section>
     </section>
     {% endfor %}
 </section>

@@ -1,17 +1,19 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Edit your details</h1>
-<form action="/users/{{ user_details['id'] }}/update" method="POST">
+<h1  class="page_title">Edit your details</h1>
+<form action="/users/{{ user_details['id'] }}/update" method="POST" class="edit_game">
     <label for="">Username:</label>
-    <input type="text" name="user_name" value="{{ user_details['user_name'] }}">
+    <input type="text" name="user_name" value="{{ user_details['user_name'] }}" class="input_box">
 
     <label for="">Email:</label>
-    <input type="text" name="email" value="{{ user_details['email'] }}">
+    <input type="text" name="email" value="{{ user_details['email'] }}" class="input_box">
 
     <label for="">Password:</label>
-    <input type="password" name="password" placeholder="Your Password Here">
-
-    <button>Update Details</button>
+    <input type="password" name="password" placeholder="Your Password Here" class="input_box">
+    <section  class="change_details">
+        <button>Update Details</button>
+    </section>
+    
 </form>    
 {% endblock %}

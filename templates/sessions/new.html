@@ -2,13 +2,14 @@
 
 {% block content %}
 <h1>Enter Your Details</h1>
-<form action="/sessions/create" method="POST">
+<form action="/sessions/create" method="POST" class="edit_game">
     <label for="">Username:</label>
-    <input type="text" name="user_name">
+    <input type="text" name="user_name"  class="input_box" placeholder="Your Username Here">
 
     <label for="">Password:</label>
-    <input type="password" name="password">
-
-    <button>Log in</button>
+    <input type="password" name="password"  class="input_box" placeholder="Your Password Here">
+    <section  class="change_details">
+        <button>Log in</button>
+    </section>
 </form>    
 {% endblock %}

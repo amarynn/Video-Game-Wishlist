@@ -1,16 +1,18 @@
 {% extends 'base.html' %}
 {% block content %}
-<section class="edit_game">
-    <form action="/games/{{ game['id'] }}/new_game_details" method="POST">
+<section>
+    <form action="/games/{{ game['id'] }}/new_game_details" method="POST"  class="edit_game">
         <label for="">Game Name: </label>
-        <input type="text" name="name" value="{{ game['name'] }}">
+        <input type="text" name="name" value="{{ game['name'] }}"  class="input_box">
 
         <label for="">Game Poster Image URL: </label>
-        <input type="text" name="image_url" value="{{ game['image_url'] }}">
+        <input type="text" name="image_url" value="{{ game['image_url'] }}"  class="input_box">
 
         <label for="">Description</label>
-        <input type="text" name="description" value="{{ game['description'] }}" class="description_box">
-        <button>Change Game Details</button>
+        <textarea type="text" name="description" class="description_box">{{ game['description'] }}</textarea>
+        <section class="change_details">
+            <button>Change Game Details</button>
+        </section>
     </form>
 </section>
 {% endblock %}

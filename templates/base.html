@@ -5,54 +5,60 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game Wishlist</title>
-    <style href="/static/styles.css"></style>
+    <link rel="stylesheet" href="/static/styles.css">
 </head>
 <body>
-    <section class="header">
-        <section class="menu">
-            {% if current_user %}
-            <form action="/sessions/delete" method = "POST">
-                <button>log out</button>
-            </form>
-            <form action="/users/{{ current_user['id'] }}/edit">
-                <button>edit account</button>
-            </form>            
-            <p>Welcome {{ current_user['user_name'] }}</p>
-            {% else %}
-            <form action="/users/new">
-                <button>sign up</button>
-            </form>
-            <form action="/sessions/new">
-                <button>log in</button>
-            </form>
-            {% endif %}            
+    <section class="content">
+        <section class="header">
+            <section>
+                {% if current_user %}
+                <section class="menu">
+                        <form action="/sessions/delete" method = "POST"  class="menu_item">
+                            <button>Log Out</button>
+                        </form>
+                        <form action="/users/{{ current_user['id'] }}/edit"  class="menu_item">
+                            <button>Edit Account</button>
+                        </form> 
+                </section>        
+                <p class="user_welcome">Welcome {{ current_user['user_name'] }}</p>
+                {% else %}
+                <section class="menu">
+                        <form action="/users/new"  class="menu_item">
+                            <button>Sign Up</button>
+                        </form>
+                        <form action="/sessions/new"  class="menu_item">
+                            <button>Log In</button>
+                        </form>
+                </section> 
+                {% endif %}            
+            </section>
+            <h1 class="title">Game Wishlist</h1>
         </section>
-        <h1 class="title">Game Wishlist</h1>
+    
+        <section class="nav">
+            <form action="/">
+                <button class="nav_button">Home</button>
+            </form>
+            {% if current_user %}
+            <form action="/games/my_wishlist">
+                <button class="nav_button">My Wishlist</button>
+            </form>
+            {% endif %}
+            <form action="/games/search">
+                <input type="text" class="search" placeholder="Search All Games" name="search_term">
+            </form>
+            {% if current_user %}
+            <form action="/games/new">
+                <button class="nav_button">Add New Game</button>
+            </form>
+            <form action="/games/edit">
+                <button class="nav_button">Edit Game Details</button>
+            </form>
+            {% endif %}
+        </section>
+        {% block content %}
+        {% endblock %}
     </section>
-
-    <section class="nav">
-        <form action="/">
-            <button class="nav_button">Home</button>
-        </form>
-        {% if current_user %}
-        <form action="/games/my_wishlist">
-            <button class="nav_button">My Wishlist</button>
-        </form>
-        {% endif %}
-        <form action="/games/search">
-            <input type="text" class="search" placeholder="Search All Games" name="search_term">
-        </form>
-        {% if current_user %}
-        <form action="/games/new">
-            <button class="nav_button">Add New Game</button>
-        </form>
-        <form action="/games/edit">
-            <button class="nav_button">Edit Game Details</button>
-        </form>
-        {% endif %}
-    </section>
-    {% block content %}
-    {% endblock %}
 </body>
-<script src="/static/scripts.js"></script>
+<link rel="scripts" src="/static/scripts.js">
 </html>

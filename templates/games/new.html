@@ -1,16 +1,19 @@
 {% extends 'base.html' %}
 {% block content %}
-<section class="new_game">
-    <form action="/games/new_game" method="POST">
+<section>
+    <form action="/games/new_game" method="POST"  class="edit_game">
         <label for="">Game Name: </label>
-        <input type="text" name="name">
+        <input type="text" name="name"  class="input_box" placeholder="Type here">
 
         <label for="">Game Poster Image URL: </label>
-        <input type="text" name="image_url">
+        <input type="text" name="image_url" class="input_box" placeholder="Type here">
 
-        <label for="">Description</label>
-        <input type="text" name="description" class="description_box">
-        <button>Add Game</button>
+        <label for="">Description:</label>
+        <textarea type="text" name="description" class="description_box" placeholder="Type here"></textarea>
+        <section  class="change_details">
+            <button>Add Game</button>
+        </section>
+        
     </form>
 </section>
 <section>
