@@ -25,7 +25,7 @@ def my_wishlist():
     return render_template("games/wishlist.html", wishlist = wishlist, current_user = current_user())
 
 def remove_from_wishlist(id):
-    delete_from_wishlist(id)
+    delete_from_wishlist(session['user_id'], id)
     return redirect("/games/my_wishlist")
 
 def search():
