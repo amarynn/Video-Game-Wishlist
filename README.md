@@ -21,6 +21,7 @@ A wishlist page for users who have signed in to create their own private wishlis
 ## :rocket: Cool tech
 - The wishlist page for the site is only viewable by a logged in user, and will only display wishlisted games for that specific user.
 - The user is able to edit their account details including their password if they wish.
+- Hovering over a games poster image will fade in a description of the game for the user to read.
 
 ## :beetle: Bugs to fix
 - Currently no known bugs.
