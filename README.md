@@ -16,7 +16,7 @@ A wishlist page for users who have signed in to create their own private wishlis
 - The remove from wishlist button was not removing any items from the wishlist, through some investigating, I discovered that this was because the id of the game displayed was not the id of the item in the user wishlist database table, this meant that I had to then alter my delete sql to then select the item in the user wishlist, by using 2 parameters instead of just the one id. I did this by passing in the users id as a parameter and the game id as a second parameter, then changed the sql to delete the item from the user wishlist table, where the users id and the games id both matched, so that it would only remove it for that individual user.
 
 ## :star2: Potential Improvements.
-- On the main page where all games are listed, It would be easier to use the page if the user is able to see which games they have already wishlisted.
+- Color scheme could be improved to allow for smoother viewing of the page by the user.
 
 ## :rocket: Cool tech
 - The wishlist page for the site is only viewable by a logged in user, and will only display wishlisted games for that specific user.
